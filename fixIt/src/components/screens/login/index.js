@@ -1,63 +1,41 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-//import AsyncStorage from "@react-native-async-storage/async-storage";
-//import LocalHost from '../../../LocalHost';
-
+const imageLogo = require('../../../assets/logo_1.png');
 import * as Animatable from 'react-native-animatable';
 
 export default function Login({ navigation }) {
 
-    const [emailLogin, setEmailLogin] = useState('');
-    const [senhaLogin, setSenhaLogin] = useState('');
-    const [message, setmessageee] = useState('');
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
 
     const navigationimc = useNavigation();
 
-    /*
-      async function fnLogin() {
-        const response = await fetch(`http://${LocalHost.address}:${LocalHost.port}/IMC/webresources/generic/User/login/${emailLogin}/${senhaLogin}`, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          }
-        });
-        let json = await response.json();
-        if (json === null) {
-          setmessageee('Erro: Usuário ou senha incorretos!');
-          setTimeout(() => {
-            setmessageee('');
-          }, 5000)
-          await AsyncStorage.clear();
-        } else {
-          await AsyncStorage.setItem('userData', JSON.stringify(json))
-          navigation.navigate('Principal');
-        }
-      }
-    */
+    const handleCadastro = () => {
+        navigationimc.navigate('Cadastro'); // Navega para a tela de cadastro
+      };
+
 
     return (
 
         <View style={styles.container}>
             <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-                <Text style={styles.message}>Bem-vindo(a)</Text>
+                <Image source={require('../../../assets/logo_1.png')}
+                    style={styles.logo} />
             </Animatable.View>
 
             <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerForm}>
-                {message && (
-                    <Text style={styles.messageErrorLogin} >{message}</Text>
-                )}
-                <Text style={styles.title}>Email</Text>
+            
+                <Text style={styles.title}>User</Text>
                 <TextInput
-                    onChangeText={text => setEmailLogin(text)}
-                    placeholder="Digite seu email"
+                    onChangeText={text => setUser(text)}
+                    placeholder="Digite seu user"
                     style={styles.input}
                 />
 
-                <Text style={styles.title}>Senha</Text>
+                <Text style={styles.title}>Password</Text>
                 <TextInput
-                    onChangeText={text => setSenhaLogin(text)}
+                    onChangeText={text => setPassword(text)}
                     placeholder="Digite sua senha"
                     secureTextEntry={true}
                     style={styles.input}
@@ -65,16 +43,23 @@ export default function Login({ navigation }) {
 
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => fnLogin()}
+                    onPress={() => handleCadastro()}
                 >
-                    <Text style={styles.buttonText}>Acessar</Text>
+                    <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={styles.buttonregister}
-                    onPress={() => { navigation.navigate('Cadastro') }}
+                    onPress={() => { navigation.navigate('Esqueci') }}
                 >
-                    <Text style={styles.registerText}>Não possui uma conta ? Cadastre-se</Text>
+                    <Text style={styles.registerText}>Esqueci minha senha</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={styles.buttonregister}
+                    onPress={() => handleCadastro()}
+                >
+                    <Text style={styles.registerText}>Não tem conta ? Cadastre-se</Text>
                 </TouchableOpacity>
 
 
@@ -86,12 +71,12 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#8bfaff',
+        backgroundColor: '#FFFF',
     },
-    messageErrorLogin: {
-        fontSize: 14,
-        fontWeight: 'bold',
-        color: "red",
+    logo: {
+        width: 200,
+        height: 200,
+        marginBottom: 24,
         alignSelf: 'center',
     },
     containerHeader: {
@@ -99,15 +84,9 @@ const styles = StyleSheet.create({
         marginBottom: '8%',
         paddingStart: '5%',
     },
-    message: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: "#1b065e",
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
+   
     containerForm: {
-        backgroundColor: '#FFF',
+        backgroundColor: '#FFFF',
         flex: 1,
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
@@ -117,33 +96,42 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginTop: 28,
+        fontWeight: "bold",
     },
     input: {
         borderBottomWidth: 1,
         height: 40,
         marginBottom: 12,
         fontSize: 16,
+        backgroundColor: "#0055FB",
+        textDecorationColor: "red",
     },
     button: {
-        backgroundColor: '#1b065e',
+        backgroundColor: 'rgb(0,0,250)',
         width: '100%',
-        borderRadius: 4,
+        borderRadius: 15,
         paddingVertical: 8,
         marginTop: 14,
         justifyContent: 'center',
         alignItems: 'center',
     },
     buttonText: {
-        color: '#FFF',
-        fontSize: 18,
-        fontWeight: 'bold',
+        color: '#000',
+        textalign: 'center',
+        fontfamily: ' Jockey One',
+        fontsize: 20,
+        fontstyle: 'normal',
+        fontweight: 400,
+        lineheight: 'normal',
     },
     buttonregister: {
         marginTop: 14,
         alignSelf: 'center',
     },
     registerText: {
-        color: '#a1a1a1',
+        color: 'black',
+        fontWeight:"bold",
+        textDecorationLine: 'underline',
 
     }
 });
