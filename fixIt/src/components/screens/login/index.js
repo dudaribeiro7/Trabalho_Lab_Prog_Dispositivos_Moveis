@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-const imageLogo = require('../../../assets/logo_1.png');
 import * as Animatable from 'react-native-animatable';
 
 export default function Login({ navigation }) {
