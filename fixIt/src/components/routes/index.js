@@ -9,7 +9,7 @@ import ElementVisualizarBike from '../screens/viewBike'
 import Pecas from '../screens/lojasPecas';
 import Atividades from '../screens/atividades';
 import Tutoriais from '../screens/tutoriais';
-
+import BikeFit from '../screens/bikefit';
 
 const Stack = createNativeStackNavigator();
 
@@ -92,6 +92,15 @@ export default function Routes() {
                 <Stack.Screen
                     name="Tutoriais"
                     component={Tutoriais}
+                    options={{
+                        title: '',
+                        headerTransparent: true,
+                        headerShown: false
+                    }}
+                />
+                     <Stack.Screen
+                    name="BikeFit"
+                    component={BikeFit}
                     options={{
                         title: '',
                         headerTransparent: true,

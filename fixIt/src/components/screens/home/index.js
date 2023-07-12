@@ -25,7 +25,7 @@ export default function Home() {
         navigationimc.navigate('ElementLojasProximas'); 
     };
     const handleBikeFit= () => {
-        navigationimc.navigate('Home'); 
+        navigationimc.navigate('BikeFit'); 
     };
     const handleAtividades= () => {
         navigationimc.navigate('Atividades'); 

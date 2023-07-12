@@ -21,35 +21,41 @@ export default function Tutoriais() {
 
   return (
     <View>
-      <View style={styles.iconsContainer}>
-        <TouchableOpacity onPress={handleVoltar}>
-          <Image
-            source={require('../../../assets/Keyboard.png')}
-            style={styles.iconWrapper}
-          />
-        </TouchableOpacity>
-        <Text style={styles.title}>Tutoriais</Text>
-        <TouchableOpacity onPress={handleHelp}>
-          <Image
-            source={require('../../../assets/Help.png')}
-            style={styles.iconWrapper}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleMore}>
-          <Image
-            source={require('../../../assets/more.png')}
-            style={styles.iconWrapper}
-          />
-        </TouchableOpacity>
-        
+       <View style={styles.container}>
+          <View style={styles.innerContainer}>
+
+            <View style={styles.iconsContainer}>
+                        <TouchableOpacity onPress={handleVoltar}>
+                            <Image source={require('../../../assets/Keyboard.png')}
+                                style={styles.iconWrapper} />
+                        </TouchableOpacity>
+                        <Text style={styles.title}>Tutoriais</Text>
+                        <TouchableOpacity onPress={handleHelp}>
+                            <Image source={require('../../../assets/Help.png')}
+                                style={styles.iconWrapper} />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={handleMore}>
+                            <Image source={require('../../../assets/more.png')}
+                                style={styles.iconWrapper} />
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.line} />
+                    
+          </View>
+          <Lp />
       </View>
-      <View style={styles.line}></View>
-      <Lp />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+    backgroundColor: 'rgba(0, 85, 250, 0.1)',
+  },
   innerContainer: {
     width: 375.02,
     height: 50,
@@ -58,11 +64,17 @@ const styles = StyleSheet.create({
     position: 'center',
   },
   iconsContainer: {
+
     width: 375,
     height: 60,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  iconWrapper: {
+    width: 40,
+    height: 40,
+    position: 'relative',
   },
   title: {
     color: '#000',
@@ -80,4 +92,3 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
 },
 });
-
