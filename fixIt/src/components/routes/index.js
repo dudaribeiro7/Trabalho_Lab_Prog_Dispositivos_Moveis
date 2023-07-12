@@ -6,8 +6,8 @@ import Home from '../screens/home';
 import ElementLojasProximas from '../screens/lojasProximas'
 import ElementEditarBike from '../screens/editarBike'
 import ElementVisualizarBike from '../screens/viewBike'
-
-
+import Pecas from '../screens/lojasPecas';
+import Atividades from '../screens/atividades';
 
 
 const Stack = createNativeStackNavigator();
@@ -18,7 +18,7 @@ export default function Routes() {
            
              <Stack.Screen
                 name="Login"
-                component={ElementVisualizarBike}
+                component={Login}
                 options={{
                     title: '',
                     headerTransparent: true,
@@ -64,6 +64,24 @@ export default function Routes() {
               <Stack.Screen
                 name="ElementVisualizarBike"
                 component={ElementVisualizarBike}
+                options={{
+                    title: '',
+                    headerTransparent: true,
+                    headerShown: false
+                }}
+            />
+             <Stack.Screen
+                name="Pecas"
+                component={Pecas}
+                options={{
+                    title: '',
+                    headerTransparent: true,
+                    headerShown: false
+                }}
+            />
+             <Stack.Screen
+                name="Atividades"
+                component={Atividades}
                 options={{
                     title: '',
                     headerTransparent: true,
