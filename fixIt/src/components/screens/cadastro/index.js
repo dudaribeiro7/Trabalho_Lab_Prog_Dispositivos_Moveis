@@ -37,8 +37,7 @@ export default function Cadastro() {
                             style={styles.input}
                         />
 
-                    </View>
-                    <View style={styles.formArea}>
+         
                         <Text style={styles.title}>Email:</Text>
                         <TextInput
                             onChangeText={text => setEmail(text)}
@@ -46,8 +45,7 @@ export default function Cadastro() {
                             style={styles.input}
                         />
 
-                    </View>
-                    <View style={styles.formArea}>
+              
                         <Text style={styles.title}>Senha:</Text>
                         <TextInput
                             onChangeText={text => setSenha(text)}
@@ -55,8 +53,7 @@ export default function Cadastro() {
                             style={styles.input}
                         />
 
-                    </View>
-                    <View style={styles.formArea}>
+                   
                         <Text style={styles.title}>Confirmar Senha:</Text>
                         <TextInput
                             onChangeText={text => setConfirmedSenha(text)}
@@ -88,8 +85,6 @@ export default function Cadastro() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: 375,
-        height: 667,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
@@ -97,7 +92,6 @@ const styles = StyleSheet.create({
 
     },
     line: {
-        width: '100%',
         height: 1,
         backgroundColor: 'gray',
       },

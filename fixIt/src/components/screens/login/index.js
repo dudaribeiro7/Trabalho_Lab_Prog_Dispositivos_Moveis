@@ -12,8 +12,11 @@ export default function Login({ navigation }) {
 
     const handleCadastro = () => {
         navigationimc.navigate('Cadastro'); // Navega para a tela de cadastro
-      };
+    };
 
+    const handleHome = () => {
+        navigationimc.navigate('Home'); // Navega para a tela de Home
+    };
 
     return (
 
@@ -24,34 +27,25 @@ export default function Login({ navigation }) {
             </Animatable.View>
 
             <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerForm}>
-            
+
                 <Text style={styles.title}>User</Text>
                 <TextInput
                     onChangeText={text => setUser(text)}
-                    placeholder="Digite seu user"
                     style={styles.input}
                 />
 
                 <Text style={styles.title}>Password</Text>
                 <TextInput
                     onChangeText={text => setPassword(text)}
-                    placeholder="Digite sua senha"
                     secureTextEntry={true}
                     style={styles.input}
                 />
 
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => handleCadastro()}
+                    onPress={() => handleHome()}
                 >
                     <Text style={styles.buttonText}>Entrar</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.buttonregister}
-                    onPress={() => { navigation.navigate('Esqueci') }}
-                >
-                    <Text style={styles.registerText}>Esqueci minha senha</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -83,7 +77,7 @@ const styles = StyleSheet.create({
         marginBottom: '8%',
         paddingStart: '5%',
     },
-   
+
     containerForm: {
         backgroundColor: '#FFFF',
         flex: 1,
@@ -129,7 +123,7 @@ const styles = StyleSheet.create({
     },
     registerText: {
         color: 'black',
-        fontWeight:"bold",
+        fontWeight: "bold",
         textDecorationLine: 'underline',
 
     }

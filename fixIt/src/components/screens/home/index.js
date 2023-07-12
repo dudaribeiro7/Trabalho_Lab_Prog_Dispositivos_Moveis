@@ -15,28 +15,47 @@ export default function Home() {
 
     const navigationimc = useNavigation();
 
-    const handleIconPress = () => {
+    const handleTutoriais = () => {
         navigationimc.navigate('Home'); 
     };
-    const handleSearch = () => {
+    const handlePecas= () => {
+        navigationimc.navigate('Pecas'); 
+    };
+    const handleLojasProximas= () => {
+        navigationimc.navigate('ElementLojasProximas'); 
+    };
+    const handleBikeFit= () => {
         navigationimc.navigate('Home'); 
     };
+    const handleAtividades= () => {
+        navigationimc.navigate('Home'); 
+    };
+
+    const handleBike = () => {
+        navigationimc.navigate('ElementVisualizarBike'); 
+    };
+    const handleLogin = () => {
+        navigationimc.navigate('Login'); 
+    };
+    const handleHome = () =>{
+        navigationimc.navigate('Home'); 
+    }
 
     return (
         <ScrollView>
             <KeyboardAvoidingView behavior="position" styles={styles.container} enabled>
                 <View style={styles.titleArea}>
-                    <TouchableOpacity onPress={handleIconPress}>
+                    <TouchableOpacity onPress={handleHome}>
                         <Icon name="settings" size={30} color="black" />
                     </TouchableOpacity>
                     <Text style={styles.textBemVindo}>Olá Renan!</Text>
-                    <TouchableOpacity onPress={handleIconPress}>
+                    <TouchableOpacity onPress={handleHome}>
                         <Image source={require('../../../assets/logo_1.png')}
                             style={styles.logo} />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.line}></View>
-                <TouchableOpacity onPress={handleIconPress}>
+                <TouchableOpacity onPress={handleBike}>
                     <Image source={require('../../../assets/bike.png')}
                         style={styles.bike} />
                 </TouchableOpacity>
@@ -51,27 +70,27 @@ export default function Home() {
                 </View>
                 <View style={styles.containerPesquisa}>
                     <TouchableOpacity
-                        onPress={() => handleIconPress()}
+                        onPress={() => handleTutoriais()}
                         style={styles.button}>
                         <Text style={styles.buttonText}>. Tutoriais</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => handleIconPress()}
+                        onPress={() => handlePecas()}
                         style={styles.button}>
                         <Text style={styles.buttonText}>. Peças</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => handleIconPress()}
+                        onPress={() => handleLojasProximas()}
                         style={styles.button}>
                         <Text style={styles.buttonText}>. Lojas Próximas</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => handleIconPress()}
+                        onPress={() => handleBikeFit()}
                         style={styles.button}>
                         <Text style={styles.buttonText}>. Bike Fit</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => handleIconPress()}
+                        onPress={() => handleAtividades()}
                         style={styles.button}>
                         <Text style={styles.buttonText}>. Registro de atividades</Text>
                     </TouchableOpacity>
