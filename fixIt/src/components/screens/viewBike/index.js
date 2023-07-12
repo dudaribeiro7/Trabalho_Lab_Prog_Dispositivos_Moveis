@@ -7,15 +7,20 @@ export default function ElementVisualizarBike() {
   const navigation = useNavigation();
 
 
-  const handleIconPress = () => {
+  const handleVoltar = () => {
     navigation.navigate('Home');
   };
+
   const handleEditBike = () => {
     navigation.navigate('ElementEditarBike');
   };
+
+  const handleHelp = () => {
+    navigation.navigate('ElementVisualizarBike');
+  };
   
   const handleTutoriais = () => {
-    navigation.navigate('ElementEditarBike');
+    navigation.navigate('');
   };
 
   return (
@@ -23,21 +28,21 @@ export default function ElementVisualizarBike() {
           <View style={styles.overlap}>
             <View style={styles.titulo}>
               <View style={styles.overlapGroup}>
-
-                <TouchableOpacity onPress={handleIconPress}>
+                <TouchableOpacity onPress={handleVoltar}>
                   <Image style={styles.icon} source={require("../../../assets/Keyboard.png")} />
                 </TouchableOpacity>
                 <Text style={styles.textWrapper}>Minha Bike</Text>
-                <TouchableOpacity  onPress={handleIconPress}>
+                <TouchableOpacity  onPress={handleHelp}>
                   <Image style={styles.icon} source={require("../../../assets/Help.png")} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleEditBike}>
                   <Image style={styles.icon} source={require("../../../assets/more.png")} />
                 </TouchableOpacity>
-
               </View>
+              <View style={styles.line} />
             </View>
           </View>
+
           <View style={styles.bike}>
             <Image style={styles.img} source={require("../../../assets/bike.png")} />
           </View>
@@ -132,8 +137,8 @@ const styles = {
     marginHorizontal: 8,
   },
   icon: {
-    height: 40,
-    width: 40,
+    height: 50,
+    width: 50,
     marginHorizontal: 10,
   },
   keyboardBackspace: {

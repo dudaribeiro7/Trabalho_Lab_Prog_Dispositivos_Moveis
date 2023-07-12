@@ -28,7 +28,7 @@ export default function Home() {
         navigationimc.navigate('Home'); 
     };
     const handleAtividades= () => {
-        navigationimc.navigate('Home'); 
+        navigationimc.navigate('Atividades'); 
     };
 
     const handleBike = () => {

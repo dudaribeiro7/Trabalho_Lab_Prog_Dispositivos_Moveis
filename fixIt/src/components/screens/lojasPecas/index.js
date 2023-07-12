@@ -22,6 +22,8 @@ export default function Pecas(){
         navigationimc.navigate('Pecas'); 
     };
 
+    const shopItemWidth = (375-24)/2;
+
     return(
         <ScrollView>
             <KeyboardAvoidingView behavior="position" styles={styles.container} enabled>
@@ -51,7 +53,7 @@ export default function Pecas(){
                 </View>
 
                 <View style={styles.shopContainer}>
-                    <View style={styles.shopItem}>
+                    <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 1</Text>
                         <TouchableOpacity onPress={handleIconPress}>
@@ -59,7 +61,7 @@ export default function Pecas(){
                                 style={styles.shopImage} />
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.shopItem}>
+                    <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 2</Text>
                         <TouchableOpacity onPress={handleIconPress}>
@@ -67,7 +69,7 @@ export default function Pecas(){
                                 style={styles.shopImage} />
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.shopItem}>
+                    <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 3</Text>
                         <TouchableOpacity onPress={handleIconPress}>
@@ -75,7 +77,7 @@ export default function Pecas(){
                                 style={styles.shopImage} /> 
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.shopItem}>
+                    <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 4</Text>
                         <TouchableOpacity onPress={handleIconPress}>
@@ -83,7 +85,7 @@ export default function Pecas(){
                                 style={styles.shopImage} />  
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.shopItem}>
+                    <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 5</Text>
                         <TouchableOpacity onPress={handleIconPress}>
@@ -91,7 +93,7 @@ export default function Pecas(){
                                 style={styles.shopImage} />  
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.shopItem}>
+                    <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 6</Text>
                         <TouchableOpacity onPress={handleIconPress}>
@@ -128,7 +130,6 @@ const styles=StyleSheet.create({
         textShadowColor: 'rgba(0, 0, 0, 0.25)',
         textShadowOffset: { width: 0, height: 4 },
         textShadowRadius: 4,
-        fontFamily: 'Jockey One',
         fontSize: 40,
         fontStyle: 'normal',
         fontWeight: 'bold',
@@ -149,12 +150,13 @@ const styles=StyleSheet.create({
     searchContainer: {
         width: 304,
         height: 39,
+        left: 25,
         position: 'relative',
     },
     searchBackground: {
         width: 304,
         height: 39,
-        left: 0,
+        left: 25,
         top: 0,
         position: 'absolute',
         backgroundColor: 'rgba(0, 85, 250, 0.15)',
@@ -168,19 +170,14 @@ const styles=StyleSheet.create({
         position: 'absolute',
         color: 'black',
         fontSize: 20,
-        fontFamily: 'Jockey One',
         fontWeight: 'normal',
         wordWrap: 'break-word',
     },
     shopContainer: {
-        width: 159,
-        height: 610,
-        position: 'relative',
-    },
-    shopItem: {
-        width: 159,
-        height: 127,
-        position: 'relative',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        paddingHorizontal: 12,
     },
     shopBackground: {
         width: 159,
@@ -190,6 +187,11 @@ const styles=StyleSheet.create({
         position: 'absolute',
         backgroundColor: '#C3D7FE',
     },
+    shopItem: {
+        marginBottom: 16,
+        height: 127,
+        position: 'relative',
+    },
     shopImage: {
         width: 138,
         height: 79,
@@ -198,13 +200,12 @@ const styles=StyleSheet.create({
         position: 'absolute',
     },
     shopName: {
-        width: 90,
+        width: 120,
         height: 24,
         left: 35,
         top: 0,
         position: 'absolute',
         color: '#000',
-        fontFamily: 'Jockey One',
         fontSize: 20,
         fontStyle: 'normal',
         fontWeight: 'bold',
