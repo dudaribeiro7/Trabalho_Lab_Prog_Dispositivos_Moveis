@@ -114,18 +114,18 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         paddingHorizontal: 20,
     },
+    areaItens: {
+        marginTop: 20,
+        width: 304,
+        height: 39,
+        flexShrink: 0,
+    },
     areaPesquisa: {
         width: 304,
         height: 39,
         flexShrink: 0,
         borderRadius: 50,
         backgroundColor: 'rgba(0, 85, 251, 0.15)',
-    },
-    areaItens: {
-        marginTop: 20,
-        width: 304,
-        height: 39,
-        flexShrink: 0,
     },
     pesquisa: {
         flex: 1,

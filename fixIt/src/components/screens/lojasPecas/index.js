@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, ScrollView, TouchableOpacity, View, KeyboardAvoidingView, Image } from 'react-native';
+import { Text, StyleSheet, ScrollView, TouchableOpacity, View, KeyboardAvoidingView, Image, TextInput, Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Pecas(){
@@ -24,6 +24,13 @@ export default function Pecas(){
 
     const shopItemWidth = (375-24)/2;
 
+    const handleNetshoes = () => {
+        const url = `https://www.netshoes.com.br/bicicleta-29-ksw-xlt-21v-cambios-shimano-freio-a-disco-quadro-aluminio-mtb-azul+preto-CGY-0688-108?campaign=gglepqpla&gclid=Cj0KCQjwnrmlBhDHARIsADJ5b_nB9XfTmTJxHoc5-WXrTJubRIYfltetRJIbz3NjTEK-KVvC6JBhdkkaAigbEALw_wcB&gclsrc=aw.ds`;
+
+        Linking.openURL(url);
+    };
+
+   
     return(
         <ScrollView>
             <KeyboardAvoidingView behavior="position" styles={styles.container} enabled>
@@ -47,16 +54,22 @@ export default function Pecas(){
                 
                 <View style={styles.line} />
 
-                <View style={styles.searchContainer}>
-                    <View style={styles.searchBackground} />
-                    <Text style={styles.searchText}>Pesquisar...</Text>
+                <View style={styles.container1}>
+                    <View style={styles.areaPesquisa}>
+                        <TextInput
+                            style={styles.pesquisa}
+                            placeholder="Pesquisar..."
+                        />
+                    </View>
                 </View>
+                
+                <View style={styles.line} />
 
                 <View style={styles.shopContainer}>
                     <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 1</Text>
-                        <TouchableOpacity onPress={handleIconPress}>
+                        <TouchableOpacity onPress={handleNetshoes}>
                             <Image source={require('../../../assets/bikeshop1.png')}
                                 style={styles.shopImage} />
                         </TouchableOpacity>
@@ -64,7 +77,7 @@ export default function Pecas(){
                     <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 2</Text>
-                        <TouchableOpacity onPress={handleIconPress}>
+                        <TouchableOpacity onPress={handleNetshoes}>
                             <Image source={require('../../../assets/bikeshop2.png')}
                                 style={styles.shopImage} />
                         </TouchableOpacity>
@@ -72,7 +85,7 @@ export default function Pecas(){
                     <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 3</Text>
-                        <TouchableOpacity onPress={handleIconPress}>
+                        <TouchableOpacity onPress={handleNetshoes}>
                            <Image source={require('../../../assets/bikeshop3.png')}
                                 style={styles.shopImage} /> 
                         </TouchableOpacity>
@@ -80,7 +93,7 @@ export default function Pecas(){
                     <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 4</Text>
-                        <TouchableOpacity onPress={handleIconPress}>
+                        <TouchableOpacity onPress={handleNetshoes}>
                           <Image source={require('../../../assets/bikeshop4.png')}
                                 style={styles.shopImage} />  
                         </TouchableOpacity>
@@ -88,7 +101,7 @@ export default function Pecas(){
                     <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 5</Text>
-                        <TouchableOpacity onPress={handleIconPress}>
+                        <TouchableOpacity onPress={handleNetshoes}>
                           <Image source={require('../../../assets/bikeshop5.png')}
                                 style={styles.shopImage} />  
                         </TouchableOpacity>
@@ -96,7 +109,7 @@ export default function Pecas(){
                     <View style={[styles.shopItem, { width: shopItemWidth }]}>
                         <View style={styles.shopBackground} />
                         <Text style={styles.shopName}>Bike Shop 6</Text>
-                        <TouchableOpacity onPress={handleIconPress}>
+                        <TouchableOpacity onPress={handleNetshoes}>
                           <Image source={require('../../../assets/bikeshop6.png')}
                                 style={styles.shopImage} />  
                         </TouchableOpacity>  
@@ -110,6 +123,23 @@ export default function Pecas(){
 }
 
 const styles=StyleSheet.create({
+    areaPesquisa: {
+        width: 304,
+        height: 39,
+        flexShrink: 0,
+        borderRadius: 50,
+        backgroundColor: 'rgba(0, 85, 251, 0.15)',
+    },
+    pesquisa: {
+        flex: 1,
+        paddingHorizontal: 10,
+    },
+    container1: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     container:{
         flex: 1,
         width: 375,
@@ -123,6 +153,8 @@ const styles=StyleSheet.create({
         width: '100%',
         height: 1,
         backgroundColor: 'gray',
+        marginBottom: 10,
+        marginTop: 10,
     },
     title: {
         color: '#000',

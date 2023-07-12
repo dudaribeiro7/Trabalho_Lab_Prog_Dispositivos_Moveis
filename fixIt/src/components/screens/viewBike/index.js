@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function ElementVisualizarBike() {
- 
+
   const navigation = useNavigation();
 
 
@@ -18,34 +19,37 @@ export default function ElementVisualizarBike() {
   const handleHelp = () => {
     navigation.navigate('ElementVisualizarBike');
   };
-  
+
   const handleTutoriais = () => {
     navigation.navigate('');
   };
 
   return (
-    <View style={styles.elementVisualizarBike}>
-          <View style={styles.overlap}>
-            <View style={styles.titulo}>
-              <View style={styles.overlapGroup}>
-                <TouchableOpacity onPress={handleVoltar}>
-                  <Image style={styles.icon} source={require("../../../assets/Keyboard.png")} />
-                </TouchableOpacity>
-                <Text style={styles.textWrapper}>Minha Bike</Text>
-                <TouchableOpacity  onPress={handleHelp}>
-                  <Image style={styles.icon} source={require("../../../assets/Help.png")} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={handleEditBike}>
-                  <Image style={styles.icon} source={require("../../../assets/more.png")} />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.line} />
-            </View>
-          </View>
+    <ScrollView>
+      <KeyboardAvoidingView behavior="position" styles={styles.container} enabled>
+        <View style={styles.titleArea}>
 
-          <View style={styles.bike}>
-            <Image style={styles.img} source={require("../../../assets/bike.png")} />
-          </View>
+          <TouchableOpacity onPress={handleVoltar}>
+            <Image source={require('../../../assets/Keyboard.png')}
+              style={styles.logo} />
+          </TouchableOpacity>
+          <Text style={styles.textBemVindo}>Minha Bike</Text>
+          <TouchableOpacity onPress={handleEditBike}>
+            <Image source={require('../../../assets/more.png')}
+              style={styles.logo} />
+          </TouchableOpacity>
+
+        </View>
+        <View style={styles.line}></View>
+
+
+        <TouchableOpacity onPress={handleEditBike}>
+          <Image source={require('../../../assets/bike.png')}
+            style={styles.bike} />
+        </TouchableOpacity>
+        <View style={styles.line}></View>
+
+        
           <View style={styles.texto}>
             <View style={styles.pneu}>
               <Image
@@ -83,11 +87,48 @@ export default function ElementVisualizarBike() {
               />
             </View>
           </View>
-      
-    </View>
+        
+
+
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
 };
 const styles = {
+  titleArea: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#FFFF',
+    padding: 15,
+  },
+  containerPesquisa: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    paddingHorizontal: 20,
+  },
+  textBemVindo: {
+    color: '#000',
+    fontSize: 20,
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    lineHeight: 24,
+  },
+  container: {
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+    backgroundColor: 'rgba(0, 85, 250, 0.1)',
+  },
+  iconsContainer: {
+    width: 375,
+    height: 60,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   line: {
     width: '100%',
     height: 1,
@@ -163,11 +204,10 @@ const styles = {
     width: 48,
   },
   bike: {
-    height: 209,
-    left: 0,
-    position: "absolute",
-    top: 16,
-    width: 375,
+    width: 100,
+    height: 100,
+    marginBottom: 14,
+    alignSelf: 'center',
   },
   img: {
     height: 200,
@@ -211,7 +251,7 @@ const styles = {
     height: 69,
     left: 58,
     letterSpacing: 0,
-    
+
     position: "absolute",
     top: 0,
     width: 275,
@@ -265,7 +305,7 @@ const styles = {
     height: 69,
     left: 57,
     letterSpacing: 0,
-  
+
     position: "absolute",
     top: 0,
     width: 275,
