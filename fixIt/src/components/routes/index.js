@@ -8,6 +8,7 @@ import ElementEditarBike from '../screens/editarBike'
 import ElementVisualizarBike from '../screens/viewBike'
 import Pecas from '../screens/lojasPecas';
 import Atividades from '../screens/atividades';
+import Tutoriais from '../screens/tutoriais';
 
 
 const Stack = createNativeStackNavigator();
@@ -88,6 +89,15 @@ export default function Routes() {
                     headerShown: false
                 }}
             />
+                <Stack.Screen
+                    name="Tutoriais"
+                    component={Tutoriais}
+                    options={{
+                        title: '',
+                        headerTransparent: true,
+                        headerShown: false
+                    }}
+                />
         </Stack.Navigator>
     )
 }

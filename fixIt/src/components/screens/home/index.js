@@ -16,7 +16,7 @@ export default function Home() {
     const navigationimc = useNavigation();
 
     const handleTutoriais = () => {
-        navigationimc.navigate('Home'); 
+        navigationimc.navigate('Tutoriais'); 
     };
     const handlePecas= () => {
         navigationimc.navigate('Pecas'); 
